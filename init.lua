@@ -16,3 +16,12 @@ vim.opt.mouse = 'a'
 require("config.lazy")
 require("set")
 require("remap")
+
+--vim.cmd('set paste')
+
+--vim.cmd('abbreviate ,l <CR><C-h>')
+
+ 
+--vim.cmd('iabbrev @@greeting Hello There!<CR>This is a pre-written message<CR>Thank you')
+vim.cmd([[iabbrev __greeting Hello there<CR>This is a test]])
+
