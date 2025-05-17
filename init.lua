@@ -23,5 +23,9 @@ require("remap")
 
  
 --vim.cmd('iabbrev @@greeting Hello There!<CR>This is a pre-written message<CR>Thank you')
-vim.cmd([[iabbrev __greeting Hello there<CR>This is a test]])
 
+vim.keymap.set("n", "<Leader>o", "iOLED_CLEAR<CR>", { noremap = true, silent = true })
+
+
+vim.cmd([[iabbrev __greeting Hello there<CR>This is a test]])
+vim.cmd([[iabbrev dOLED OLED_CLEAR<CR>OLED_CURSOR 0 0<CR>OLED_PRINT]])
