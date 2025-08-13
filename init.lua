@@ -26,7 +26,7 @@ require("remap")
 
 vim.keymap.set("n", "<Leader>o", "iOLED_CLEAR<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>c", ':let @/ = ""<CR>', { desc = 'Clear search highlights' })
-vim.keymap.set("n", "<Leader>\\", ':luafile $MYVIMRC', { desc = 'Reload luafile' })
+vim.keymap.set("n", "<Leader>\\", ':luafile $MYVIMRC<CR>', { desc = 'Reload luafile' })
 
 
 vim.cmd([[iabbrev __greeting Hello there<CR>This is a test]])
