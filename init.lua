@@ -20,8 +20,6 @@ require("remap")
 --vim.cmd('set paste')
 
 --vim.cmd('abbreviate ,l <CR><C-h>')
-
- 
 --vim.cmd('iabbrev @@greeting Hello There!<CR>This is a pre-written message<CR>Thank you')
 
 vim.keymap.set("n", "<Leader>o", "iOLED_CLEAR<CR>", { noremap = true, silent = true })
