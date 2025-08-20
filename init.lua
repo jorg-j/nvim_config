@@ -1,8 +1,8 @@
 
--- map leader to space
+-- -- map leader to space
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
+--
 
 -- Make line numbers default
 vim.opt.number = true
@@ -64,3 +64,7 @@ vim.keymap.set('n', '<F5>', function()
         print("No command defined for <F5> in this project.")
     end
 end, { desc = 'Run project-specific command' })
+
+
+
+
