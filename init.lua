@@ -17,20 +17,21 @@ vim.o.termguicolors=true
 require("config.lazy")
 require("set")
 require("remap")
+require("jack")
 
 --vim.cmd('set paste')
 
 --vim.cmd('abbreviate ,l <CR><C-h>')
 --vim.cmd('iabbrev @@greeting Hello There!<CR>This is a pre-written message<CR>Thank you')
 
-vim.keymap.set("n", "<Leader>o", "iOLED_CLEAR<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Leader>c", ':let @/ = ""<CR>', { desc = 'Clear search highlights' })
 vim.keymap.set("n", "<Leader>\\", ':luafile $MYVIMRC<CR>', { desc = 'Reload luafile' })
 
+-- pane navigation
+vim.keymap.set("n", "<Leader>h", '<C-w>h', { desc = 'Move Left' })
+vim.keymap.set("n", "<Leader>l", '<C-w>l', { desc = 'Move Right' })
+vim.keymap.set("n", "<Leader>j", '<C-w>j', { desc = 'Move Down' })
+vim.keymap.set("n", "<Leader>k", '<C-w>k', { desc = 'Move Up' })
 
-vim.cmd([[iabbrev __greeting Hello there<CR>This is a test]])
-vim.cmd([[iabbrev dOLED OLED_CLEAR<CR>OLED_CURSOR 0 0<CR>OLED_PRINT]])
-vim.cmd([[iabbrev ilog logger.info(f"")<LEFT><LEFT>]])
 
 -- Creates .editorconfig in the current directory
 vim.api.nvim_create_user_command('EditorConfig', function()
@@ -66,6 +67,25 @@ vim.keymap.set('n', '<F5>', function()
     end
 end, { desc = 'Run project-specific command' })
 
+
+-- Used to find and load project based configs
+local function load_project_config()
+  local project_config = vim.fn.findfile('.nvim.lua', '.;')
+  if project_config ~= '' then
+    local ok, err = pcall(dofile, project_config)
+    if not ok then
+      vim.notify('Error loading project config: ' .. err, vim.log.levels.ERROR)
+    end
+  end
+end
+
+-- Load project config when starting Neovim
+load_project_config()
+
+-- Also load when changing directories
+vim.api.nvim_create_autocmd('DirChanged', {
+  callback = load_project_config
+})
 
 
 
