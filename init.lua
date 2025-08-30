@@ -14,6 +14,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.o.termguicolors=true
 
+
 require("config.lazy")
 require("set")
 require("remap")
