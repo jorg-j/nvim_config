@@ -10,4 +10,6 @@ vim.keymap.set("n", "<Leader>o", "iOLED_CLEAR<CR>", { noremap = true, silent = t
 
 vim.keymap.set("n", "<ENTER>", "o<ESC>", { desc = 'Add empty line', noremap = true, silent = true })
 vim.keymap.set("n", "<S-ENTER>", "O<ESC>", { desc = 'Add empty line before', noremap = true, silent = true })
+vim.keymap.set("n", "fj", "<ESC>", { desc = 'Add empty line before', noremap = true, silent = true })
+
 
