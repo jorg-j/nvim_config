@@ -1,7 +1,7 @@
 local wk = require("which-key")
 wk.add({
 
-  { "<leader>t", "<CMD>vertical botright term ++kill=term<CR>", desc = "Create a terminal" },
+  --{ "<leader>t", "<CMD>vertical botright term ++kill=term<CR>", desc = "Create a terminal" },
   { "<leader>b", "<CMD>ls<CR>", desc = "Show Buffers" },
   
 --  { "<C-d>", "<C-d>zz", desc = "Half page down and center"},
